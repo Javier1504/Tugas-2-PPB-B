@@ -1,0 +1,68 @@
+package com.example.happybirthdayjavier
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.happybirthdayjavier.ui.theme.HappyBirthdayJavierTheme
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            HappyBirthdayJavierTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = Color.Yellow // mengganti warna ke merah
+                ) {
+                    Greeting(name = "Javier")
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally, // memindahkan posisi horizontal ke tengah
+        modifier = modifier.fillMaxSize()
+    ) {
+        Text(
+            text = "Happy 21st Birthday $name!",
+            fontSize = 100.sp,
+            lineHeight = 100.sp,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
+        Text(
+            text = "-From Nikey-",
+            fontSize = 40.sp,
+            textAlign = TextAlign.Center, // memindahkan text menjadi rata tengah
+            modifier = Modifier.padding(16.dp)
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun BirthdayCardPreview() {
+    HappyBirthdayJavierTheme {
+        Greeting(name = "Javier")
+    }
+}
